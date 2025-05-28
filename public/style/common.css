@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font: normal normal normal FontAwesome; */
+  /* font-size: 14px; */
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.body_container {
+    position: relative;
+    padding: 0 60px;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+#layout {
+    display: flex;
+    /* flex-direction: row-reverse; */
+    min-height: 100vh;
+    width: 100%;
+}
