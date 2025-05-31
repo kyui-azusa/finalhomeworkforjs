@@ -1,0 +1,39 @@
+.post {
+  position: relative;
+  color: #555;
+}
+.post .post-title {
+  font: bold 25px / 1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia,
+    Times, sans-serif;
+  color: #555;
+}
+.post .post-time{
+    margin-top: 15px;
+}
+.post .post-content {
+    padding-top: 15px;
+}
+.post .post-readmore {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.post .post-readmore a {
+  font-size: 14px;
+  color: #444;
+  margin: -10px 0;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  float: right;
+}
+.post .post-readmore a::after {
+  font-family: "FontAwesome";
+  content: "\f101";
+  padding-left: 0.3em;
+}
+.post .post-readmore a:hover {
+  background-color: #F8F8F8;
+}

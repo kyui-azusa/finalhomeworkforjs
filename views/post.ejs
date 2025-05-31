@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("partials/head", {title: "首页"}) %>
+  <%- include("partials/head", {title: "首页", postcss: true}) %>
   <body>
     <div class="body_container">
       <%- include("partials/header") %>
       <div id="layout">
         <!-- 主体 -->
         <div id="content-container">
-          <%- include("partials/postsInfo", {posts: posts}) %>
-
+          <%- include("partials/postContent", {post: post}) %>
         </div>
         <%- include("partials/sidebar") %>
       </div>

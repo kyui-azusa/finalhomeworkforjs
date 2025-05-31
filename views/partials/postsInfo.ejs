@@ -1,0 +1,19 @@
+<% posts.forEach((post)=>{ %>
+<div class="post">
+  <a href="<%= '/note/' + post.slug||'/' %>">
+    <h1 class="post-title">
+        <%= post.title||"默认标题" %>
+    </h1>
+  </a>
+  <div class="post-time">
+      <%= post.date||"20202020" %>
+    </div>
+  <div class="post-content">
+    <%= post.content||"Lorem ipsum dolor sit amet consectetur, beatae quibusdam repudiandae, aut odio inventore dolorum est aperiam iste dolore voluptatum saepe iusto nihil natus! Optio minus, perspiciatis saepe at beatae voluptatem, temporibus officia ab nam, pariatur atque ipsam laboriosam blanditiis omnis! Perspiciatis voluptate ea voluptas aperiam nemo, suscipit eveniet quisquam ipsa dignissimos mollitia ab consequuntur saepe doloribus sed alias similique quam soluta nulla quibusdam! Modi, vel nam quod reprehenderit ab adipisci dignissimos dicta similique quibusdam quis perspiciatis nihil tempora doloribus earum." %>
+    <span>...</span>
+  </div>
+  <div class="post-readmore">
+    <a href="<%= '/note/' + post.slug||'/' %>"> Read More </a>
+  </div>
+</div>
+<%})%>

@@ -8,7 +8,8 @@
 
 a{
     text-decoration: none;
-    color: inherit;
+    /* color: inherit; */
+    color: #444;
 }
 
 .body_container {
@@ -22,4 +23,8 @@ a{
     /* flex-direction: row-reverse; */
     min-height: 100vh;
     width: 100%;
+}
+
+#content-container {
+    color: #444;
 }

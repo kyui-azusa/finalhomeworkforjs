@@ -16,3 +16,5 @@ my-notes-app/
 └── README.md            # 项目说明
 ```
 
+
+### 功能
