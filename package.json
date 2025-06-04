@@ -6,7 +6,9 @@
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
     "marked": "^15.0.12",
-    "mysql": "^2.18.1"
+    "mysql2": "^3.14.1",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@types/express": "^5.0.2",
