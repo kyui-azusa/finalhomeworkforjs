@@ -5,26 +5,23 @@
   /* font: normal normal normal FontAwesome; */
   /* font-size: 14px; */
 }
-
-a{
-    text-decoration: none;
-    /* color: inherit; */
-    color: #444;
+a {
+  text-decoration: none;
+  /* color: inherit; */
+  color: #444;
 }
-
-.body_container {
-    position: relative;
-    padding: 0 60px;
-    max-width: 1150px;
-    margin: 0 auto;
+.body-container {
+  position: relative;
+  padding: 0 60px;
+  max-width: 1150px;
+  margin: 0 auto;
 }
 #layout {
-    display: flex;
-    /* flex-direction: row-reverse; */
-    min-height: 100vh;
-    width: 100%;
+  display: flex;
+  /* flex-direction: row-reverse; */
+  min-height: 100vh;
+  width: 100%;
 }
-
 #content-container {
-    color: #444;
+  color: #444;
 }

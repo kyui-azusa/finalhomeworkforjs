@@ -4,14 +4,18 @@
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "gray-matter": "^4.0.3",
+    "highlight.js": "^11.11.1",
     "marked": "^15.0.12",
     "mysql": "^2.18.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.2",
+    "less": "^4.3.0",
     "nodemon": "^3.1.10"
   },
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "dev:common": "nodemon --watch style/common.less --ext less --exec \"lessc style/common.less public/style/common.css\"",
+    "dev:post": "nodemon --watch style/post.less --ext less --exec \"lessc style/post.less public/style/post.css\""
   }
 }
