@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/head", {title: "页面走丢啦"}) %>
+  <body>
+    <div class="body-container">
+      <%- include("partials/header") %>
+      <div id="layout">
+        <!-- 主体 -->
+        <div id="content-container">
+            页面走丢啦, 将在<span id="uijm"></span>秒后返回主页
+        </div>
+        <%- include("partials/sidebar") %>
+      </div>
+    </div>
+    <script>
+        let uijm = document.querySelector("#uijm")
+        let n = 5
+        uijm.textContent = n;
+        (()=>{setInterval(()=>{
+            n -= 1
+            console.log(n);
+            uijm.textContent = n
+            if (n ==0){
+                window.location.href = '/'
+            }
+        }, 1000)})()
+    </script>
+  </body>
+</html>

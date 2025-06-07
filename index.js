@@ -17,6 +17,7 @@ app.get('/', async (req, res) => {
 
 app.use((req, res) => {
   res.status(404).render('404', { url: req.originalUrl });
+// res.send(6)
 });
 
 app.listen(port, ()=>{
