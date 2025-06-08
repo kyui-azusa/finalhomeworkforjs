@@ -22,3 +22,12 @@ export const createTable = async (sql) => {
   await db.exec(sql)
   await db.close()
 }
+
+export const withDB = async (callback) => {
+  const db = await openDB()
+  try {
+    return await callback(db)
+  } finally {
+    await db.close()
+  }
+}

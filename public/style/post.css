@@ -1,5 +1,7 @@
 #content-container {
   all: initial;
+  flex: 1;
+padding: 20px 50px 0 0;
   /* open-sans-regular - latin-ext_latin */
   /* open-sans-italic - latin-ext_latin */
   /* open-sans-700 - latin-ext_latin */

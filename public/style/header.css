@@ -35,3 +35,25 @@
   border: 1px solid #ddd;
   border-bottom-color: #fff;
 }
+
+.username {
+  position: relative;
+}
+.username::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  content: "Logout";
+  text-align: center;
+visibility: hidden;
+  transition: all 0.2s ease-in;
+  background: #444;
+  padding: 12px 0;
+  color: #fff;
+  opacity: 0;
+}
+.username:hover::after {
+visibility: visible;
+opacity: 1;
+}

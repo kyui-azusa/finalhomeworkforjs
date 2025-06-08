@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/head", {title: "首页"}) %>
+  <body>
+    <style>
+      h2 {
+        margin-bottom: 10px;
+      }
+    </style>
+    <div class="body-container">
+      <%- include("partials/header", {current: "Login"}) %>
+      <div id="layout">
+        <!-- 主体 -->
+        <div id="content-container">
+          <div id="login">
+            <h2>登录</h2>
+            <div class="input_container">
+              <input class="" name="acc" id="acc" placeholder="" />
+              <label for="acc">Account</label>
+            </div>
+            <div class="input_container">
+              <input class="" name="psw" id="psw" type="password" placeholder="" />
+              <label for="psw">Password</label>
+            </div>
+            <button class="btn" onclick="login()" value="Log In">Log In</button>
+            <button class="btn" onclick="document.querySelector('#login').style.display = 'none';document.querySelector('#reg').style.display = 'block';" >Sign In</button>
+          </div>
+          <div id="reg" style="display: none;">
+            <h2>注册</h2>
+            <div class="input_container">
+              <input class="" name="acc-reg" id="acc-reg" placeholder="" />
+              <label for="acc-reg">Account</label>
+            </div>
+            <div class="input_container">
+              <input class="" name="psw-reg" id="psw-reg" type="password" placeholder="" />
+              <label for="psw-reg">Password</label>
+            </div>
+            <button class="btn" onclick="reg()" value="Sign In">Sign In</button>
+            <button class="btn" onclick="document.querySelector('#login').style.display = 'block';document.querySelector('#reg').style.display = 'none'" >Log In</button>
+            
+          </div>
+        </div>
+        <%- include("partials/sidebar") %>
+      </div>
+    </div>
+    <script>
+      async function reg() {
+        let acc = document.querySelector("#acc-reg").value;
+        let psw = document.querySelector("#psw-reg").value;
+
+        const res = await fetch("/login/reg", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ acc, psw }),
+        });
+        location.href = '/login';
+      }
+
+    async function login() {
+        let acc = document.querySelector("#acc").value;
+        let psw = document.querySelector("#psw").value;
+
+        const res = await fetch("/login/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ acc, psw }),
+        });
+        location.href = '/';
+      }
+   </script>
+
+  </body>
+</html>

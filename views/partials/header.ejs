@@ -5,10 +5,23 @@
   </div>
   <!-- right -->
   <div class="nav-menu">
-    <a class="current" href="">Home</a>
-    <a href="Javascript:alert('正在施工...')">Archive</a>
-    <a href="Javascript:alert('正在施工...')">About</a>
-    <!-- <a href="">More</a> -->
-    <a href="Javascript:alert('正在施工...')">Login</a>
+    <a class="<%= current === 'Home' ? 'current' : '' %>" href="/">Home</a>
+    <a class="<%= current === 'Archive' ? 'current' : '' %>" href="javascript:alert('正在施工...')">Archive</a>
+    <a class="<%= current === 'About' ? 'current' : '' %>" href="javascript:alert('正在施工...')">About</a>
+    <% if (!user) { %>
+    <a class="<%= current === 'Login' ? 'current' : '' %>" href="/login">Login</a>
+    <% }  else {%>
+    <a class=username "<%= current === 'Login' ? 'current' : '' %>" href="#" onclick="logout()" ><%=user.username%></a>
+    <% } %>
   </div>
+  <script>
+    async function logout() {
+    const res = await fetch('/login/logout', { method: 'POST' });
+    if (res.ok) {
+      location.href = '/';
+    } else {
+      alert('退出失败');
+    }
+  }
+  </script>
 </div>
