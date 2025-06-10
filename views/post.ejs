@@ -7,10 +7,37 @@
       <div id="layout">
         <!-- 主体 -->
         <div id="content-container">
+          <div id="fav">
+            <button id="fav-btn" data-slug="<%= slug %>">收藏</button>
+            <span id="fav-status"></span>
+          </div>
           <%- include("partials/postContent", {post: post}) %>
         </div>
         <%- include("partials/sidebar") %>
       </div>
     </div>
+    <script>
+      document
+        .querySelector("#fav-btn")
+        ?.addEventListener("click", async () => {
+          const slug = document.querySelector("#fav-btn").dataset.slug;
+          const res = await fetch("/note/favorite/add", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ slug }),
+          });
+
+          if (res.ok) {
+            document.querySelector("#fav-status").textContent = "✅ 已收藏！";
+          } else if (res.status === 401) {
+            alert("请先登录");
+            window.location.href = "/login";
+          } else {
+            alert("收藏失败");
+          }
+        });
+    </script>
   </body>
 </html>

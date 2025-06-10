@@ -37,6 +37,7 @@
 }
 
 .username {
+  transition: all 0.2s;
   position: relative;
 }
 .username::after {
@@ -46,14 +47,17 @@
   width: 100%;
   content: "Logout";
   text-align: center;
-visibility: hidden;
+  visibility: hidden;
   transition: all 0.2s ease-in;
   background: #444;
   padding: 12px 0;
   color: #fff;
   opacity: 0;
 }
+.username:hover {
+  color: transparent;
+}
 .username:hover::after {
-visibility: visible;
-opacity: 1;
+  visibility: visible;
+  opacity: 1;
 }

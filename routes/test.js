@@ -33,3 +33,32 @@ const db = await openDB()
   res.send(users)
 });
 export default router;
+
+router.get("/f", async (req, res) => {
+createTable(`CREATE TABLE IF NOT EXISTS favorites (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  slug TEXT NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);`)
+  res.send(openDB())
+});
+
+router.get("/initdb", async (req, res) => {
+createTable(`CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT UNIQUE,
+  password TEXT,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);`)
+createTable(`CREATE TABLE IF NOT EXISTS favorites (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  slug TEXT NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);`)
+  // res.send(openDB())
+  res.send('ok')
+});

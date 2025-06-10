@@ -2,6 +2,7 @@ import express from 'express'
 import router_note from './routes/notes.js'
 import router_login from './routes/login.js'
 import router_test from './routes/test.js'
+import router_archive from './routes/archive.js'
 import {getAllPosts} from './utils/noteReader.js';
 import session from 'express-session'
 
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
 app.use('/note', router_note)
 app.use('/login', router_login)
 app.use('/test', router_test)
+app.use('/archive', router_archive)
 
 
 app.get('/', async (req, res) => {

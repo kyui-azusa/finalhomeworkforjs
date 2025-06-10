@@ -6,7 +6,7 @@
   <!-- right -->
   <div class="nav-menu">
     <a class="<%= current === 'Home' ? 'current' : '' %>" href="/">Home</a>
-    <a class="<%= current === 'Archive' ? 'current' : '' %>" href="javascript:alert('正在施工...')">Archive</a>
+    <a class="<%= current === 'Archive' ? 'current' : '' %>" href="/archive">Archive</a>
     <a class="<%= current === 'About' ? 'current' : '' %>" href="javascript:alert('正在施工...')">About</a>
     <% if (!user) { %>
     <a class="<%= current === 'Login' ? 'current' : '' %>" href="/login">Login</a>
