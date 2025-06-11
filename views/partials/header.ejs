@@ -1,13 +1,13 @@
 <div id="header">
   <!-- left -->
   <div class="site-name">
-    <a href="/" id="logo">title</a>
+    <a href="/" id="logo">一个轻量级的笔记管理平台</a>
   </div>
   <!-- right -->
   <div class="nav-menu">
     <a class="<%= current === 'Home' ? 'current' : '' %>" href="/">Home</a>
     <a class="<%= current === 'Archive' ? 'current' : '' %>" href="/archive">Archive</a>
-    <a class="<%= current === 'About' ? 'current' : '' %>" href="javascript:alert('正在施工...')">About</a>
+    <a class="<%= current === 'About' ? 'current' : '' %>" href="/about">About</a>
     <% if (!user) { %>
     <a class="<%= current === 'Login' ? 'current' : '' %>" href="/login">Login</a>
     <% }  else {%>
