@@ -3,6 +3,7 @@ import router_note from './routes/notes.js'
 import router_login from './routes/login.js'
 import router_test from './routes/test.js'
 import router_archive from './routes/archive.js'
+import router_about from './routes/about.js'
 import {getAllPosts} from './utils/noteReader.js';
 import session from 'express-session'
 
@@ -29,6 +30,7 @@ app.use('/note', router_note)
 app.use('/login', router_login)
 app.use('/test', router_test)
 app.use('/archive', router_archive)
+app.use('/about', router_about)
 
 
 app.get('/', async (req, res) => {

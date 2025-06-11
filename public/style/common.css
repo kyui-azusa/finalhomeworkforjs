@@ -25,6 +25,7 @@ a {
 }
 #content-container {
   color: #444;
+  flex: 1;
 }
 
 /* @kyui-azusa */

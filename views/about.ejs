@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/head", {title: "页面走丢啦"}) %>
+  <body>
+    <div class="body-container">
+      <%- include("partials/header", {current: ""}) %>
+      <div id="layout">
+        <!-- 主体 -->
+        <div id="content-container">
+          <h1>作者信息</h1>
+          <h2>周梓煜</h2>
+          <p>学号: 23049056</p>
+          <p>学院: 金融管理学院</p>
+          <p>负责主要代码工作</p>
+
+          <h2>杨巧若</h2>
+          <p>学号: 23075028</p>
+          <p>学院: 国际组织学院</p>
+          <p>负责主要论文工作</p>
+        </div>
+        <%- include("partials/sidebar") %>
+      </div>
+    </div>
+    <script>
+      let uijm = document.querySelector("#uijm");
+      let n = 5;
+      uijm.textContent = n;
+      (() => {
+        setInterval(() => {
+          n -= 1;
+          console.log(n);
+          uijm.textContent = n;
+          if (n == 0) {
+            window.location.href = "/";
+          }
+        }, 1000);
+      })();
+    </script>
+  </body>
+</html>
