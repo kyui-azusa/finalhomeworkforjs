@@ -66,10 +66,27 @@ export async function getAllPosts() {
   }
   return posts
 }
+export async function getPostsinfoBySlugs(slugs) {
+  let posts = []
+  for (let slug of slugs) {
+    posts.push(await getPost(slug));
+  }
+  return posts
+}
 
 export async function getNote(slug){
   const filepath = path.join(__dirname, "../source/_post", `${slug}.md`);
   const raw = await fs.readFile(filepath, 'utf-8')
   const note = matter(raw)
   return note
+}
+
+export async function getTagsBySlug(slug){
+  const filepath = path.join(__dirname, "../source/_post", `${slug}.md`)
+  const raw = await fs.readFile(filepath, 'utf-8')
+  const { data } = matter(raw)
+  // return data
+  let tags = data.tags || data.tag || []
+  if (typeof tags === "string") tags = [tags]
+  return tags;
 }

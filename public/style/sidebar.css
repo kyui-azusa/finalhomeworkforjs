@@ -10,6 +10,18 @@
 }
 .avatar {
   margin: 0 auto;
+  position: relative;
+}
+.avatar::after {
+  position: absolute;
+  content: "";
+  margin: 0 auto;
+  display: block;
+  width: 96px;
+  height: 96px;
+  /* background-color: violet; */
+  top: 0;
+  border-radius: 50%;
 }
 .avatar img {
   border-radius: 50%;

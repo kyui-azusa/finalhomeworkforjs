@@ -10,7 +10,7 @@ import session from 'express-session'
 
 
 const app = express()
-const port = 3000
+const port = 3030
 
 app.use(session({
   secret: 'azusa-secret-key',        // 加密用的秘钥azusa-secret-key

@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("partials/head", {title: "页面走丢啦"}) %>
+  <%- include("partials/head", {title: "作者介绍"}) %>
+
   <body>
+    <style>
+      #content-container {
+        position: relative;
+      }
+      .showcard {
+        position: absolute;
+        right: 40px;
+        top: 20px;
+      }
+    </style>
     <div class="body-container">
       <%- include("partials/header", {current: ""}) %>
       <div id="layout">
         <!-- 主体 -->
         <div id="content-container">
+          <div class="showcard"><%- include("partials/3dcard") %></div>
           <h1>作者信息</h1>
           <h2>周梓煜</h2>
           <p>学号: 23049056</p>
