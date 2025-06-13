@@ -9,19 +9,11 @@
   width: 25%;
 }
 .avatar {
-  margin: 0 auto;
+  margin: 0 auto 20px;
   position: relative;
-}
-.avatar::after {
-  position: absolute;
-  content: "";
-  margin: 0 auto;
-  display: block;
-  width: 96px;
   height: 96px;
-  /* background-color: violet; */
-  top: 0;
-  border-radius: 50%;
+  width: 96px;
+  perspective: 222500px;
 }
 .avatar img {
   border-radius: 50%;
@@ -31,6 +23,40 @@
   background-color: transparent;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+.avatar .face,
+.avatar .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  transition: 0.5s;
+  backface-visibility: hidden;
+}
+.avatar .back{
+  transform: rotateY(180deg);
+  border-radius: 50%;
+  padding: 4px;
+  width: 96px;
+  height: 96px;
+  background-color: transparent;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.avatar .back span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.avatar:hover .face{
+  transform: rotateY(-180deg);
+}
+.avatar:hover .back{
+  transform: rotateY(0deg);
+}
+
 
 .widget-title {
   font-size: 18px;
@@ -38,3 +64,53 @@
   margin-bottom: 10px;
   border-bottom: 1px solid #ddd;
 }
+/* 
+.avatar {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  display: inline-block;
+  perspective: 800px; 
+}
+
+.avatar .face,
+.avatar .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  transition: transform 0.5s ease;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.avatar .face {
+  z-index: 2;
+}
+
+.avatar .back {
+  background-color: #f0f0f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transform: rotate3d(2.236, 1, 0, 180deg);
+  z-index: 1;
+  padding: 4px;
+}
+
+.avatar .back span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.avatar:hover .face {
+  transform: rotate3d(1, 1, 0, -180deg);
+}
+
+.avatar:hover .back {
+  transform: rotate3d(2.236, 1, 0, 0deg);
+} */
