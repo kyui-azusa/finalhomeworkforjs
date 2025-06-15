@@ -7,16 +7,14 @@ import router_about from './routes/about.js'
 import {getAllPosts} from './utils/noteReader.js';
 import session from 'express-session'
 
-
-
 const app = express()
 const port = 3030
 
 app.use(session({
-  secret: 'azusa-secret-key',        // 加密用的秘钥azusa-secret-key
-  resave: false,                     // 每次请求都重新保存 session
-  saveUninitialized: true,          // 初始化保存空 session
-  cookie: { maxAge: 1000 * 60 * 60 } // 1 小时后过期
+  secret: 'azusa-secret-key',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 1000 * 60 * 60 } 
 }))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

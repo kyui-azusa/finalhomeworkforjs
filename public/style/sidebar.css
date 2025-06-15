@@ -34,7 +34,7 @@
   transition: 0.5s;
   backface-visibility: hidden;
 }
-.avatar .back{
+.avatar .back {
   transform: rotateY(180deg);
   border-radius: 50%;
   padding: 4px;
@@ -43,19 +43,48 @@
   background-color: transparent;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-.avatar .back span{
+.avatar .back span {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.avatar:hover .face{
+.avatar .back.l {
+  transform: rotateY(-180deg);
+}
+.avatar .back.r {
+  transform: rotateY(180deg);
+}
+.avatar .back.u {
+  transform: rotateX(180deg);
+}
+.avatar .back.d {
+  transform: rotateX(-180deg);
+}
+
+.avatar .face.l{
+  transform: rotateY(-180deg);
+}
+.avatar .face.r {
+  transform: rotateY(180deg);
+}
+.avatar .face.u {
+  transform: rotateX(180deg);
+}
+.avatar .face.d {
+  transform: rotateX(-180deg);
+}
+.avatar .back.hover {
+  transform: rotateX(0deg);
+  transform: rotateY(0deg);
+}
+/* .avatar:hover .face{
   transform: rotateY(-180deg);
 }
 .avatar:hover .back{
   transform: rotateY(0deg);
-}
+} */
 
 
 .widget-title {

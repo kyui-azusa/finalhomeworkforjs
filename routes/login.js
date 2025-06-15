@@ -4,7 +4,10 @@ import { createTable, openDB, withDB } from "../utils/dbHandler.js";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  res.render('login')
+  if (req.session.user) {
+    return res.redirect("/")
+  }
+  res.render("login");
 });
 
 // router.post("/reg", async (req, res) => {
@@ -25,32 +28,28 @@ router.get("/", async (req, res) => {
 // });
 router.post("/reg", async (req, res) => {
   const { acc, psw } = req.body;
-
   try {
     let existingUser = null;
-
     await withDB(async (db) => {
       existingUser = await db.get(
         'SELECT * FROM users WHERE username = ?',
         [acc]
       );
-
       if (existingUser) {
-        throw new Error('用户名已存在');
+        // throw new Error('用户名已存在');
+        res.status(409).json({
+          msg: '用户名已存在'
+        })
       }
-
       await db.run(
         'INSERT INTO users (username, password) VALUES (?, ?)',
         [acc, psw]
       );
     });
-
     res.send("注册成功");
   } catch (err) {
     console.error("注册失败:", err.message);
-    const msg =
-      err.message === '用户名已存在' ? err.message : "注册失败，请稍后再试";
-    res.status(400).send(msg); // 使用 400 表示“请求格式正确但业务错误”
+    res.status(400).send(err.message);
   }
 });
 

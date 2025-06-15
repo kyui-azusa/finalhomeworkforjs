@@ -1,8 +1,19 @@
 <div id="side-bar">
   <a href="" class="avatar">
     <img class="face" src="/img/avatar.jpg" alt="" />
-    <div class="back">
+    <div class="back l">
       <span>周梓煜</span>
+    </div>
+    <div class="back r">
+      <!-- <span>桑李清</span> -->
+      <span>杨巧若</span> 
+    </div>
+    <div class="back u">
+      <span>23049056</span>
+    </div>
+    <div class="back d">
+      <span>23075028</span>
+      <!-- <span>23094071</span> -->
     </div>
   </a>
   <div class="widget-title">Categories</div>
@@ -10,3 +21,41 @@
   <div class="widget-title">11233</div>
   <div class="widget-title">11233</div>
 </div>
+<script>
+  let direct
+  function getDirection(dx, dy) {
+  const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+  if (angle >= -45 && angle < 45) return 'r';
+  if (angle >= 45 && angle < 135) return 'd';
+  if (angle >= 135 || angle < -135) return 'l';
+  if (angle >= -135 && angle < -45) return 'u';
+}
+
+  const avatar = document.querySelector('.avatar')
+  const face = avatar.querySelector('.face')
+  const back = avatar.querySelector('.back')
+  const rect = avatar.getBoundingClientRect();
+
+  let centerX = rect.left + rect.width / 2;
+  let centerY = rect.top + rect.height / 2;
+
+  avatar.addEventListener("mouseenter", (e)=>{
+    // e, getDirection(e.clientX-centerX, e.clientY-centerY)
+    // console.log(getDirection(e.clientX-centerX, e.clientY-centerY));
+    let centerX = rect.left + rect.width / 2;
+    let centerY = rect.top + rect.height / 2;
+    direct = getDirection(e.clientX-centerX, e.clientY-centerY)
+    document.querySelector(`.${direct}`).classList.add('hover')
+    document.querySelector(".face").classList.add(`${direct}`)
+  })
+  avatar.addEventListener("mouseleave", (e)=>{
+    console.log(e);
+    document.querySelectorAll(".back").forEach((e)=>{e.classList.remove('hover')})
+    document.querySelector(".face").classList.remove('l')
+    document.querySelector(".face").classList.remove('r')
+    document.querySelector(".face").classList.remove('u')
+    document.querySelector(".face").classList.remove('d')
+
+  })
+</script>

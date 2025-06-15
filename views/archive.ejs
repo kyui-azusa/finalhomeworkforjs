@@ -16,6 +16,8 @@
       margin-bottom: 40px;
     }
     .list {
+      position: relative;
+      z-index: 100;
       float: left;
       list-style: none;
       padding: 0;
@@ -103,7 +105,10 @@
     </script>
 
     <script>
-      const tagData = <%- JSON.stringify(tagData) %>
+      // const tagData = <%- JSON.stringify(tagData) %>;
+      // 报告老师, 这里vscode会报错, 但是实际上符合ejs语法
+      // 我没有找到能消除该报错的插件, 使用parse也没有解决, 就保留着了
+      const tagData = JSON.parse('<%- JSON.stringify(tagData) %>'); // 哦解决了
       const chart = echarts.init(document.getElementById("tag-pie"));
 
       chart.setOption({

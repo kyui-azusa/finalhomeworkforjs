@@ -1,15 +1,13 @@
 import express from "express";
-import { createTable, openDB, withDB } from "../utils/dbHandler.js";
+import { withDB } from "../utils/dbHandler.js";
 import { getPostsinfoBySlugs, getTagsBySlug } from "../utils/noteReader.js";
 
 const router = express.Router();
-
 router.get("/", async (req, res) => {
   let posts = [];
   let slugs = [];
   if (req.session.user) {
     const user_id = req.session.user.id;
-
     await withDB(async (db) => {
       const rows = await db.all(
         "SELECT slug FROM favorites WHERE user_id = ?",
@@ -26,7 +24,6 @@ router.get("/", async (req, res) => {
   //   })
   // );
   const tagMap = {};
-
   for (const slug of slugs) {
     const tags = await getTagsBySlug(slug);
     tags.forEach((tag) => {
@@ -37,13 +34,9 @@ router.get("/", async (req, res) => {
     name,
     value,
   }));
-
   res.locals.tagData = tagData;
-
   res.locals.slugs = slugs;
   res.locals.posts = posts;
-  // res.locals.tagMap = tagMap;
-
   res.render("archive");
 });
 export default router;
